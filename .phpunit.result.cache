@@ -1,0 +1,1 @@
+{"version":2,"defects":[],"times":{"JamesKabz\\Sms\\Tests\\SmsChannelTest::test_channel_sends_message":0.04,"JamesKabz\\Sms\\Tests\\SmsManagerTest::test_send_template_renders_and_logs":0.001}}
