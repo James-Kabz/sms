@@ -1,6 +1,5 @@
 {
     "name": "james-kabz/sms",
-    "version": "0.1.0",
     "description": "Laravel package for integrating sms notifications",
     "type": "library",
     "license": "MIT",
