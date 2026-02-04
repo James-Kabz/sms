@@ -1,6 +1,6 @@
 # james-kabz/sms
 
-Laravel package for sending SMS via Africa's Talking.
+Laravel package for sending SMS via Africa's Talking and Twilio.
 
 ## Requirements
 
@@ -47,6 +47,15 @@ AFRICASTALKING_API_KEY=your_api_key
 AFRICASTALKING_FROM=your_sender_id
 ```
 
+Twilio (optional):
+
+```
+TWILIO_ACCOUNT_SID=your_account_sid
+TWILIO_AUTH_TOKEN=your_auth_token
+TWILIO_FROM=your_twilio_number
+TWILIO_MESSAGING_SERVICE_SID=your_messaging_service_sid
+```
+
 Optional overrides:
 
 ```
@@ -76,6 +85,12 @@ Set the default driver in `.env`:
 
 ```
 SMS_DRIVER=africastalking
+```
+
+Use Twilio:
+
+```
+SMS_DRIVER=twilio
 ```
 
 To add another driver, define it in `config/sms.php` under `drivers` with a `class` key that implements `JamesKabz\\Sms\\Contracts\\SmsDriver`, then set `SMS_DRIVER` to that name.
@@ -172,6 +187,7 @@ This registers a POST endpoint that stores the payload in `sms_logs` (when loggi
 
 - Ensure your sender ID (`AFRICASTALKING_FROM`) is approved in Africa's Talking.
 - For production, use your live username and API key (not the sandbox).
+- Twilio requires either `TWILIO_FROM` or `TWILIO_MESSAGING_SERVICE_SID`.
 
 ## Testing (package)
 

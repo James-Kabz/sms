@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Schema;
 use InvalidArgumentException;
 use JamesKabz\Sms\Contracts\SmsDriver;
 use JamesKabz\Sms\Models\SmsLog;
+use JamesKabz\Sms\Services\TwilioSms;
 
 class SmsManager
 {
@@ -68,6 +69,7 @@ class SmsManager
 
         return match ($name) {
             'africastalking' => new AfricasTalkingSms($config),
+            'twilio' => new TwilioSms($config),
             default => throw new InvalidArgumentException("SMS driver [{$name}] is not supported."),
         };
     }

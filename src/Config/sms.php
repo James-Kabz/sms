@@ -13,6 +13,14 @@ return [
             // Optional defaults that can be overridden per send() call.
             'bulk_mode' => env('AFRICASTALKING_BULK_MODE'),
         ],
+        'twilio' => [
+            'account_sid' => env('TWILIO_ACCOUNT_SID'),
+            'auth_token' => env('TWILIO_AUTH_TOKEN'),
+            'from' => env('TWILIO_FROM'),
+            'messaging_service_sid' => env('TWILIO_MESSAGING_SERVICE_SID'),
+            'endpoint' => env('TWILIO_SMS_ENDPOINT', 'https://api.twilio.com/2010-04-01'),
+            'timeout' => (int) env('TWILIO_TIMEOUT', 15),
+        ],
     ],
 
     'templates' => [

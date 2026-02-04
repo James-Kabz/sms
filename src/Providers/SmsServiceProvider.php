@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use JamesKabz\Sms\Services\AfricasTalkingSms;
 use JamesKabz\Sms\Services\SmsManager;
+use JamesKabz\Sms\Services\TwilioSms;
 
 class SmsServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,11 @@ class SmsServiceProvider extends ServiceProvider
         $this->app->singleton(AfricasTalkingSms::class, function ($app) {
             $config = $app['config']['sms'] ?? [];
             return new AfricasTalkingSms($config['drivers']['africastalking'] ?? []);
+        });
+
+        $this->app->singleton(TwilioSms::class, function ($app) {
+            $config = $app['config']['sms'] ?? [];
+            return new TwilioSms($config['drivers']['twilio'] ?? []);
         });
 
         $this->app->alias(SmsManager::class, 'sms');
